@@ -1,0 +1,257 @@
+/*
+Theme Name: Multiverse Platform Simplified
+Theme URI: https://drah.tech
+Author: DRAH
+Author URI: https://drah.tech
+Description: A simplified WordPress theme for the Multiverse Platform Portal Exchange with Real Estate and Business Solutions.
+Version: 1.0.0
+Requires at least: 5.0
+Tested up to: 6.4
+Requires PHP: 7.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: multiverse-platform-simplified
+Tags: real-estate, business, multiverse, auction, property, finance
+*/
+
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f9fa;
+}
+
+a {
+    color: #0073aa;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #00a0d2;
+    text-decoration: underline;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 0.5em;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+h2 {
+    font-size: 1.75em;
+}
+
+h3 {
+    font-size: 1.5em;
+}
+
+h4 {
+    font-size: 1.25em;
+}
+
+h5 {
+    font-size: 1em;
+}
+
+h6 {
+    font-size: 0.875em;
+}
+
+p {
+    margin-bottom: 1em;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Layout */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.site-header {
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    padding: 1rem 0;
+    margin-bottom: 2rem;
+}
+
+.site-branding {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.site-title {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.site-description {
+    margin: 0;
+    color: #666;
+}
+
+.main-navigation {
+    margin-top: 1rem;
+}
+
+.main-navigation ul {
+    display: flex;
+    list-style: none;
+}
+
+.main-navigation li {
+    margin-right: 1rem;
+}
+
+.main-navigation a {
+    display: block;
+    padding: 0.5rem 0;
+}
+
+.site-content {
+    padding: 2rem 0;
+}
+
+.site-footer {
+    background-color: #333;
+    color: #fff;
+    padding: 2rem 0;
+    margin-top: 2rem;
+}
+
+.site-info {
+    text-align: center;
+}
+
+/* Property Cards */
+.property-listings {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.property-card {
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.property-image {
+    height: 200px;
+    overflow: hidden;
+}
+
+.property-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.property-content {
+    padding: 1rem;
+}
+
+.property-title {
+    margin-bottom: 0.5rem;
+}
+
+.property-price {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #0073aa;
+    margin-bottom: 0.5rem;
+}
+
+.property-location {
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+.property-features {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+}
+
+.property-feature {
+    text-align: center;
+}
+
+/* Buttons */
+.button {
+    display: inline-block;
+    background-color: #0073aa;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+}
+
+.button:hover {
+    background-color: #00a0d2;
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Forms */
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+input[type="range"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="color"],
+textarea,
+select {
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100%;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .property-listings {
+        grid-template-columns: 1fr;
+    }
+    
+    .main-navigation ul {
+        flex-direction: column;
+    }
+    
+    .main-navigation li {
+        margin-right: 0;
+        margin-bottom: 0.5rem;
+    }
+}

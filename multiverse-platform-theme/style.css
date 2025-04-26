@@ -1,0 +1,945 @@
+/*
+Theme Name: Multiverse Platform for Real Estate and Business Solutions
+Theme URI: https://drah.tech
+Author: DRAH
+Author URI: https://drah.tech
+Description: A comprehensive WordPress theme for the Multiverse Platform Portal Exchange with Real Estate and Business Solutions. Features property management, auctions, DRAH real estate features, AEC DRAH construction services, and DRAH Finance options.
+Version: 1.0.0
+Requires at least: 5.8
+Tested up to: 6.0
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: multiverse-platform
+Tags: real-estate, business, multiverse, auction, property, finance, responsive, bootstrap
+*/
+
+/* 
+This is the main stylesheet for the Multiverse Platform theme.
+It includes basic styling and imports other stylesheets for specific components.
+*/
+
+/* Reset and Base Styles */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+body {
+    line-height: 1.6;
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    background-color: #f8f9fa;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #212529;
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.75rem;
+}
+
+h4 {
+    font-size: 1.5rem;
+}
+
+h5 {
+    font-size: 1.25rem;
+}
+
+h6 {
+    font-size: 1rem;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+a {
+    color: #0d6efd;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #0a58ca;
+    text-decoration: underline;
+}
+
+/* Layout */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+}
+
+.col {
+    flex: 1 0 0%;
+    padding: 0 15px;
+}
+
+/* Header */
+.site-header {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1rem 0;
+    position: relative;
+    z-index: 100;
+}
+
+.site-branding {
+    display: flex;
+    align-items: center;
+}
+
+.site-title {
+    font-size: 1.5rem;
+    margin-bottom: 0;
+}
+
+.site-description {
+    font-size: 0.875rem;
+    color: #6c757d;
+    margin-bottom: 0;
+}
+
+/* Navigation */
+.main-navigation {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.main-navigation ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.main-navigation li {
+    position: relative;
+    margin-left: 1.5rem;
+}
+
+.main-navigation a {
+    display: block;
+    padding: 0.5rem 0;
+    color: #212529;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.main-navigation a:hover {
+    color: #0d6efd;
+}
+
+/* Footer */
+.site-footer {
+    background-color: #212529;
+    color: #fff;
+    padding: 3rem 0;
+    margin-top: 3rem;
+}
+
+.footer-widgets {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+}
+
+.footer-widget {
+    flex: 1;
+    padding: 0 15px;
+    margin-bottom: 1.5rem;
+}
+
+.footer-widget h4 {
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.footer-widget ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-widget ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-widget a {
+    color: #adb5bd;
+    text-decoration: none;
+}
+
+.footer-widget a:hover {
+    color: #fff;
+}
+
+.site-info {
+    text-align: center;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: #adb5bd;
+    font-size: 0.875rem;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    font-weight: 500;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+    transition: all 0.15s ease-in-out;
+    cursor: pointer;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #0a58ca;
+    border-color: #0a53be;
+}
+
+.btn-secondary {
+    color: #fff;
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+.btn-secondary:hover {
+    color: #fff;
+    background-color: #5a6268;
+    border-color: #545b62;
+}
+
+.btn-success {
+    color: #fff;
+    background-color: #198754;
+    border-color: #198754;
+}
+
+.btn-success:hover {
+    color: #fff;
+    background-color: #157347;
+    border-color: #146c43;
+}
+
+/* Forms */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #86b7fe;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+/* Property Listings */
+.property-listings {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.property-card {
+    background-color: #fff;
+    border-radius: 0.25rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.property-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.property-image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.property-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.property-card:hover .property-image img {
+    transform: scale(1.05);
+}
+
+.property-status {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-radius: 0.25rem;
+}
+
+.status-available {
+    background-color: #198754;
+    color: #fff;
+}
+
+.status-auction {
+    background-color: #fd7e14;
+    color: #fff;
+}
+
+.status-pending {
+    background-color: #6c757d;
+    color: #fff;
+}
+
+.status-sold {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.property-drah {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-radius: 0.25rem;
+    background-color: #0dcaf0;
+    color: #fff;
+}
+
+.property-content {
+    padding: 1.25rem;
+}
+
+.property-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.property-price {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #0d6efd;
+    margin-bottom: 0.5rem;
+}
+
+.property-location {
+    font-size: 0.875rem;
+    color: #6c757d;
+    margin-bottom: 0.5rem;
+}
+
+.property-features {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e9ecef;
+}
+
+.property-feature {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.875rem;
+}
+
+.property-feature-value {
+    font-weight: 600;
+}
+
+.property-feature-label {
+    color: #6c757d;
+    font-size: 0.75rem;
+}
+
+/* Property Single */
+.property-single {
+    margin-top: 2rem;
+}
+
+.property-gallery {
+    margin-bottom: 2rem;
+}
+
+.property-main-image {
+    height: 400px;
+    overflow: hidden;
+    border-radius: 0.25rem;
+    margin-bottom: 1rem;
+}
+
+.property-main-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.property-thumbnails {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.5rem;
+}
+
+.property-thumbnail {
+    height: 80px;
+    overflow: hidden;
+    border-radius: 0.25rem;
+    cursor: pointer;
+}
+
+.property-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s ease;
+}
+
+.property-thumbnail:hover img {
+    opacity: 0.8;
+}
+
+.property-details {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+}
+
+.property-main-details {
+    flex: 2;
+    padding-right: 2rem;
+}
+
+.property-sidebar {
+    flex: 1;
+    background-color: #fff;
+    border-radius: 0.25rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    padding: 1.5rem;
+}
+
+.property-meta {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+}
+
+.property-meta-item {
+    flex: 1 0 33.333%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.property-meta-value {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.property-meta-label {
+    font-size: 0.875rem;
+    color: #6c757d;
+}
+
+.property-description {
+    margin-bottom: 2rem;
+}
+
+.property-features-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.property-features-list li {
+    display: flex;
+    align-items: center;
+}
+
+.property-features-list li:before {
+    content: "✓";
+    margin-right: 0.5rem;
+    color: #198754;
+    font-weight: 600;
+}
+
+.property-map {
+    height: 300px;
+    border-radius: 0.25rem;
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+
+/* Auction */
+.auction-details {
+    background-color: #fff;
+    border-radius: 0.25rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.auction-status {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.auction-current-bid {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #0d6efd;
+}
+
+.auction-time-left {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #dc3545;
+}
+
+.auction-steps {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+}
+
+.auction-step {
+    flex: 1;
+    text-align: center;
+    padding: 1rem;
+    border-radius: 0.25rem;
+    background-color: #f8f9fa;
+    margin: 0 0.5rem;
+    position: relative;
+}
+
+.auction-step.active {
+    background-color: #d1e7dd;
+    border: 1px solid #badbcc;
+}
+
+.auction-step:not(:last-child):after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -1rem;
+    width: 1rem;
+    height: 2px;
+    background-color: #ced4da;
+}
+
+.auction-step-number {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background-color: #6c757d;
+    color: #fff;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.auction-step.active .auction-step-number {
+    background-color: #198754;
+}
+
+.auction-step-title {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.auction-step-description {
+    font-size: 0.875rem;
+    color: #6c757d;
+}
+
+.auction-bid-form {
+    margin-top: 1.5rem;
+}
+
+/* DRAH Finance */
+.finance-calculator {
+    background-color: #fff;
+    border-radius: 0.25rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.finance-calculator-title {
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.finance-calculator-form {
+    margin-bottom: 1.5rem;
+}
+
+.finance-calculator-results {
+    background-color: #f8f9fa;
+    border-radius: 0.25rem;
+    padding: 1rem;
+}
+
+.finance-calculator-result {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.finance-calculator-result-label {
+    font-weight: 600;
+}
+
+.finance-calculator-result-value {
+    font-weight: 600;
+    color: #0d6efd;
+}
+
+.finance-features {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+}
+
+.finance-feature {
+    flex: 1 0 50%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.finance-feature:before {
+    content: "✓";
+    margin-right: 0.5rem;
+    color: #198754;
+    font-weight: 600;
+}
+
+/* AEC DRAH Construction */
+.construction-services {
+    background-color: #fff;
+    border-radius: 0.25rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.construction-services-title {
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.construction-packages {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.construction-package {
+    flex: 1;
+    background-color: #f8f9fa;
+    border-radius: 0.25rem;
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.construction-package:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.construction-package-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.construction-package-price {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #0d6efd;
+    margin-bottom: 1rem;
+}
+
+.construction-package-features {
+    text-align: left;
+    margin-bottom: 1.5rem;
+}
+
+.construction-package-features li {
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: flex-start;
+}
+
+.construction-package-features li:before {
+    content: "✓";
+    margin-right: 0.5rem;
+    color: #198754;
+    font-weight: 600;
+}
+
+/* Business Solutions */
+.business-solutions {
+    margin-top: 2rem;
+}
+
+.business-models {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.business-model-card {
+    background-color: #fff;
+    border-radius: 0.25rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.business-model-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.business-model-image {
+    height: 200px;
+    overflow: hidden;
+}
+
+.business-model-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.business-model-card:hover .business-model-image img {
+    transform: scale(1.05);
+}
+
+.business-model-content {
+    padding: 1.25rem;
+}
+
+.business-model-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.business-model-description {
+    font-size: 0.875rem;
+    color: #6c757d;
+    margin-bottom: 1rem;
+}
+
+.business-model-stats {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e9ecef;
+}
+
+.business-model-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.875rem;
+}
+
+.business-model-stat-value {
+    font-weight: 600;
+}
+
+.business-model-stat-label {
+    color: #6c757d;
+    font-size: 0.75rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    .property-details {
+        flex-direction: column;
+    }
+    
+    .property-main-details {
+        padding-right: 0;
+        margin-bottom: 1.5rem;
+    }
+    
+    .construction-packages {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 768px) {
+    .site-header {
+        padding: 0.5rem 0;
+    }
+    
+    .site-branding {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .main-navigation {
+        justify-content: flex-start;
+        margin-top: 1rem;
+    }
+    
+    .main-navigation ul {
+        flex-direction: column;
+    }
+    
+    .main-navigation li {
+        margin-left: 0;
+        margin-bottom: 0.5rem;
+    }
+    
+    .footer-widgets {
+        flex-direction: column;
+    }
+    
+    .property-features-list {
+        grid-template-columns: 1fr;
+    }
+    
+    .auction-steps {
+        flex-direction: column;
+    }
+    
+    .auction-step {
+        margin: 0 0 1rem 0;
+    }
+    
+    .auction-step:not(:last-child):after {
+        display: none;
+    }
+}
+
+@media (max-width: 576px) {
+    .property-thumbnails {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .property-meta-item {
+        flex: 1 0 50%;
+    }
+}
