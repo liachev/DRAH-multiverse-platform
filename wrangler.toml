@@ -1,0 +1,39 @@
+# Deployment Configuration for Multiverse Platform Portal Exchange
+
+# Environment variables
+PORT=3000
+MONGODB_URI=mongodb://localhost:27017/multiverse-platform
+JWT_SECRET=your-secret-key-should-be-changed-in-production
+NODE_ENV=production
+
+# Cloudflare deployment configuration
+name = "multiverse-platform"
+type = "javascript"
+account_id = "your-account-id"
+workers_dev = true
+route = "multiverse-platform.example.com/*"
+zone_id = "your-zone-id"
+
+# Database configuration
+[d1_databases]
+database_name = "multiverse-platform-db"
+
+# KV namespace configuration
+[[kv_namespaces]]
+binding = "MULTIVERSE_KV"
+id = "your-kv-namespace-id"
+
+# Static asset configuration
+[site]
+bucket = "./frontend/build"
+entry-point = "./backend/src/index.js"
+
+# Build configuration
+[build]
+command = "npm run build"
+upload.format = "service-worker"
+
+# Environment variables for production
+[env.production]
+PORT = 8080
+NODE_ENV = "production"

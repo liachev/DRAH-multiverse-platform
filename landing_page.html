@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiverse Platform Portal Exchange</title>
+    <style>
+        :root {
+            --primary-color: #3a86ff;
+            --secondary-color: #8338ec;
+            --accent-color: #ff006e;
+            --success-color: #38b000;
+            --warning-color: #ffbe0b;
+            --error-color: #ff5400;
+            --dark-bg: #1a1a2e;
+            --light-bg: #f8f9fa;
+            --text-dark: #16161a;
+            --text-light: #fffffe;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: white;
+            box-shadow: var(--box-shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.5rem 1rem;
+            border-radius: var(--border-radius);
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #2a75e6;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .mode-toggle {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .mode-toggle button {
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .mode-toggle button.active {
+            background-color: white;
+            color: var(--primary-color);
+        }
+
+        .mode-toggle button:not(.active) {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        .section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-image {
+            height: 200px;
+            background-color: #f0f0f0;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .card-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-description {
+            color: #444;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-actions {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .feature h3 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .cta {
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            text-align: center;
+            padding: 4rem 0;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta p {
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            font-size: 1.2rem;
+        }
+
+        footer {
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-column ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">Multiverse<span>Exchange</span></a>
+                <nav class="nav-links">
+                    <a href="#">Metaverse</a>
+                    <a href="#">Real Estate</a>
+                    <a href="#">Business Solutions</a>
+                    <a href="#">About</a>
+                </nav>
+                <div class="auth-buttons">
+                    <a href="#" class="btn btn-outline">Log In</a>
+                    <a href="#" class="btn btn-primary">Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Bridging Virtual & Real Worlds</h1>
+            <p>Discover a revolutionary platform that combines metaverse experiences with real-world real estate and business solutions.</p>
+            <div class="mode-toggle">
+                <button class="active">Metaverse</button>
+                <button>Real Estate</button>
+                <button>Business Solutions</button>
+            </div>
+            <a href="#" class="btn btn-primary">Get Started</a>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Featured Properties</h2>
+                <p>Explore our curated selection of virtual and real-world properties</p>
+            </div>
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-image" style="background-image: url('https://via.placeholder.com/300x200');"></div>
+                    <div class="card-content">
+                        <div class="card-title">Luxury Virtual Gallery</div>
+                        <div class="card-price">0.5 ETH</div>
+                        <div class="card-meta">
+                            <span>Virtual Land</span>
+                            <span>Size: 1000 sq ft</span>
+                        </div>
+                        <div class="card-description">
+                            Premium virtual gallery space perfect for NFT exhibitions and digital art displays.
+                        </div>
+                        <div class="card-actions">
+                            <a href="#" class="btn btn-outline">View Details</a>
+                            <a href="#" class="btn btn-primary">Place Bid</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-image" style="background-image: url('https://via.placeholder.com/300x200');"></div>
+                    <div class="card-content">
+                        <div class="card-title">Vacant Lot - St. Bernard Parish</div>
+                        <div class="card-price">$10,000</div>
+                        <div class="card-meta">
+                            <span>Vacant Lot</span>
+                            <span>Size: 5000 sq ft</span>
+                        </div>
+                        <div class="card-description">
+                            Build your dream home on this spacious lot in a developing neighborhood with all utilities available.
+                        </div>
+                        <div class="card-actions">
+                            <a href="#" class="btn btn-outline">View Details</a>
+                            <a href="#" class="btn btn-primary">Place Deposit</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-image" style="background-image: url('https://via.placeholder.com/300x200');"></div>
+                    <div class="card-content">
+                        <div class="card-title">Metaverse Commercial Space</div>
+                        <div class="card-price">1.2 ETH</div>
+                        <div class="card-meta">
+                            <span>Commercial</span>
+                            <span>Size: 2500 sq ft</span>
+                        </div>
+                        <div class="card-description">
+                            Prime location virtual commercial space ideal for digital storefronts and brand experiences.
+                        </div>
+                        <div class="card-actions">
+                            <a href="#" class="btn btn-outline">View Details</a>
+                            <a href="#" class="btn btn-primary">Place Bid</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background-color: #f0f4f8;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Platform Features</h2>
+                <p>Discover the unique capabilities of our Multiverse Platform Portal Exchange</p>
+            </div>
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">🏙️</div>
+                    <h3>Metaverse Marketplace</h3>
+                    <p>Trade digital assets, virtual land, and NFTs in our secure blockchain-powered marketplace.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🏠</div>
+                    <h3>Real Estate Auctions</h3>
+                    <p>Participate in transparent property auctions with our three-step process: Select, Deposit, Win.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">💼</div>
+                    <h3>AI Business Modeling</h3>
+                    <p>Leverage AI-driven business modeling tools to create scalable ventures with minimal capital.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>DRAH Real Estate</h2>
+                <p>Helping disaster recovery and affordable housing initiatives through property development</p>
+            </div>
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-image" style="background-image: url('https://via.placeholder.com/300x200');"></div>
+                    <div class="card-content">
+                        <div class="card-title">Vacant Lot - Zip Code 70032</div>
+                        <div class="card-price">$8,500</div>
+                        <div class="card-meta">
+                            <span>Vacant Lot</span>
+                            <span>Size: 4200 sq ft</span>
+                        </div>
+                        <div class="card-description">
+                            Affordable lot in recovery zone with potential for new construction. All utilities available.
+                        </div>
+                        <div class="card-actions">
+                            <a href="#" class="btn btn-outline">View Details</a>
+                            <a href="#" class="btn btn-primary">Place Deposit</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-image" style="background-image: url('https://via.placeholder.com/300x200');"></div>
+                    <div class="card-content">
+                        <div class="card-title">Vacant Lot - Zip Code 70043</div>
+                        <div class="card-price">$12,000</div>
+                        <div class="card-meta">
+                            <span>Vacant Lot</span>
+                            <span>Size: 6000 sq ft</span>
+                        </div>
+                        <div class="card-description">
+                            Corner lot in developing neighborhood perfect for affordable housing development.
+                        </div>
+                        <div class="card-actions">
+                            <a href="#" class="btn btn-outline">View Details</a>
+                            <a href="#" class="btn btn-primary">Place Deposit</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-image" style="background-image: url('https://via.placeholder.com/300x200');"></div>
+                    <div class="card-content">
+                        <div class="card-title">Property Bundle - St. Bernard Parish</div>
+                        <div class="card-price">$25,000</div>
+                        <div class="card-meta">
+                            <span>3 Vacant Lots</span>
+                            <span>Total Size: 15000 sq ft</span>
+                        </div>
+                        <div class="card-description">
+                            Bundle of three adjacent lots ideal for multi-unit affordable housing development.
+                        </div>
+                        <div class="card-actions">
+                            <a href="#" class="btn btn-outline">View Details</a>
+                            <a href="#" class="btn btn-primary">Place Deposit</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Start Your Journey?</h2>
+            <p>Join our platform today and explore the possibilities of metaverse assets, real estate opportunities, and AI-driven business solutions.</p>
+            <a href="#" class="btn btn-primary">Sign Up Now</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Platform</h3>
+                    <ul>
+                        <li><a href="#">Metaverse</a></li>
+                        <li><a href="#">Real Estate</a></li>
+                        <li><a href="#">Business Solutions</a></li>
+                        <li><a href="#">DRAH Initiative</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">API</a></li>
+                        <li><a href="#">Community</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">Compliance</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Multiverse Platform Portal Exchange. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

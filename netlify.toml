@@ -1,0 +1,33 @@
+// netlify.toml configuration file for automated deployment
+
+[build]
+  command = "npm run build"
+  publish = "frontend/dist"
+  functions = "backend/functions"
+
+[dev]
+  command = "npm run dev"
+  port = 8888
+  targetPort = 3000
+  publish = "frontend/dist"
+  functions = "backend/functions"
+  autoLaunch = true
+
+# Redirect all routes to index.html for SPA routing
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# API redirects for serverless functions
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+
+# Environment variable configuration
+[build.environment]
+  NODE_VERSION = "18"
+
+# MongoDB connection will be set in Netlify UI or via CLI
+# MONGODB_URI will be set as an environment variable
